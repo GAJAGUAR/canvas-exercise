@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing with Canvas</title>
+    <link rel="stylesheet" href="">
+    <script src="Canvas.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+
+<body>
+    <h1>This is a Canvas' design</h1>
+    <form>
+        Write a Canvas dimension in pixels
+        <input id="txtDimension" class="inputBox" type="number" max="500">
+        <br/>
+        <br/> Indicates the number of lines?
+        <input id="txtLines" class="inputBox" type="number" max="500">
+        <br/>
+        <br/> What color do you want?
+        <input id="txtColor" class="inputBox" type="color">
+        <br/>
+        <br/> Choose the pattern
+        <br/>
+        <input id="radSquare" class="inputBox" type="radio" name="pattern" value="Square">Square
+        <input id="radStar" class="inputBox" type="radio" name="pattern" value="Star">Star
+        <br/>
+        <br/>
+        <input id="btnShow" class="actionButton" type="button" value="Show">
+        <input id="btnClear" class="actionButton" type="reset" value="Clear">
+    </form>
+    <br/>
+    <canvas id="myCanvas" width="300px" height="300px">The navigator does not support Canvas</canvas>
+    <p>Voilà!</p>
+</body>
+
+</html>
