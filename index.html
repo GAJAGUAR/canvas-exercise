@@ -1,37 +1,71 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Drawing with Canvas</title>
-    <link rel="stylesheet" href="">
-    <script src="Canvas.js" type="text/javascript" charset="utf-8" async defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Drawing with Canvas</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <h1>This is a Canvas' design</h1>
-    <form>
-        Write a Canvas dimension in pixels
-        <input id="txtDimension" class="inputBox" type="number" max="500">
-        <br/>
-        <br/> Indicates the number of lines?
-        <input id="txtLines" class="inputBox" type="number" max="500">
-        <br/>
-        <br/> What color do you want?
-        <input id="txtColor" class="inputBox" type="color">
-        <br/>
-        <br/> Choose the pattern
-        <br/>
-        <input id="radSquare" class="inputBox" type="radio" name="pattern" value="Square">Square
-        <input id="radStar" class="inputBox" type="radio" name="pattern" value="Star">Star
-        <br/>
-        <br/>
-        <input id="btnShow" class="actionButton" type="button" value="Show">
-        <input id="btnClear" class="actionButton" type="reset" value="Clear">
-    </form>
-    <br/>
-    <canvas id="myCanvas" width="300px" height="300px">The navigator does not support Canvas</canvas>
-    <p>Voilà!</p>
+  <div class="container">
+    <div class="col-12">
+      <h1 class="title">This is a Canvas' design</h1>
+    </div>
+    <div class="col-4">
+      <form class="form">
+        <div class="form-control">
+          <label for="txt-dimension" class="label">
+            Write a Canvas dimension in pixels
+          </label>
+          <input
+            id="txt-dimension"
+            class="input-text"
+            type="number"
+            max="500"
+            value="300"
+          >
+        </div>
+        <div class="form-control">
+          <label for="txt-lines" class="label">
+            Indicates the number of lines
+          </label>
+          <input id="txt-lines" class="input-text" type="number" max="100" value="20">
+        </div>
+        <div class="form-control">
+          <label for="txt-color" class="label">
+            What color do you want?
+          </label>
+          <input id="txt-color" class="input-color" type="color">
+        </div>
+        <div class="form-control">
+          <label class="label">Choose the pattern</label>
+          <div class="input-option">
+            <div class="option-item">
+              <input id="opt-square" type="radio" name="pattern" checked>
+              <label for="opt-square" class="option-label">Square</label>
+            </div>
+            <div class="option-item">
+              <input id="opt-star" type="radio" name="pattern" value="star">
+              <label for="opt-star" class="option-label">Star</label>
+            </div>
+          </div>
+        </div>
+        <input id="btn-show" class="button" type="button" value="Show">
+        <input id="btn-clear" class="button" type="reset" value="Clear">
+      </form>
+    </div>
+    <div class="col-8">
+      <div class="canvas">
+        <canvas id="my-canvas" width="300px" height="300px">
+        The navigator does not support Canvas
+      </canvas>
+      <p>Voilà!</p>
+    </div>
+  </div>
+  <script src="main.js" type="text/javascript" charset="utf-8" async defer ></script>
+</div>
 </body>
 
 </html>

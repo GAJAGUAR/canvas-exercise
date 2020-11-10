@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14pt;
+  padding: 10px;
+  width: 100vw;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.form > .form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form > .form-control > .label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.form > .form-control > .input-text {
+  display: block;
+  height: 2rem;
+  width: 100%;
+  padding: 0.25rem;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  border-width: 1px;
+  border-color: darkgray;
+  border-radius: 0.25rem;
+}
+
+.form > .form-control > .input-color {
+  display: block;
+  height: 2rem;
+  border-width: 1px;
+  border-color: darkgray;
+  border-radius: 0.25rem;
+}
+
+.form > .form-control .input-option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.input-option {
+  border-width: 1px;
+  border-color: darkgray;
+}
+
+.input-option > .option-label {
+  height: 2rem;
+}
+
+.input-option .option-item {
+  margin-right: 1rem;
+}
+
+.input-option .option-item:last-child {
+  margin-right: 0;
+}
+
+.button {
+  height: 2rem;
+  width: 6rem;
+  padding: 0.25rem;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.canvas {
+  padding: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.col {
+  width: auto;
+  max-width: 100%;
+}
+
+.col-4 {
+  width: 33.333%;
+}
+
+.col-8 {
+  width: 66.666%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  .col {
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .col-4 {
+    width: 100%;
+  }
+
+  .col-8 {
+    width: 100%;
+  }
+}

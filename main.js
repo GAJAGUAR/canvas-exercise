@@ -1,86 +1,86 @@
-var btnShowObject = document.getElementById("btnShow");
-var btnClearObject = document.getElementById("btnClear");
-btnShowObject.addEventListener("click", DrawCanvasDesign);
-btnClearObject.addEventListener("click", ClearCanvas);
+var btnShow = document.getElementById("btn-show");
+var btnClear = document.getElementById("btn-clear");
+btnShow.addEventListener("click", drawDesign);
+btnClear.addEventListener("click", clearCanvas);
 
-function DrawLine(canvasId, color, xStart, yStart, xFinal, yFinal) {
-    var canvasElement = document.getElementById(canvasId);
-    var canvasContext = canvasElement.getContext("2d");
-    canvasContext.beginPath();
-    canvasContext.strokeStyle = color;
-    canvasContext.moveTo(xStart, yStart);
-    canvasContext.lineTo(xFinal, yFinal);
-    canvasContext.stroke();
-    canvasContext.closePath();
+function drawLine(canvasId, color, xStart, yStart, xFinal, yFinal) {
+    var el = document.getElementById(canvasId);
+    var ctx = el.getContext("2d");
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.moveTo(xStart, yStart);
+    ctx.lineTo(xFinal, yFinal);
+    ctx.stroke();
+    ctx.closePath();
 }
 
-function UpperLeft(dimension, lines, color, offset, adjust) {
+function upperLeft(lines, color, offset, adjust) {
     for (i = 0; i <= lines; i++) {
         var x = 0 + (i * offset);
         var y = lines * offset - i * offset;
-        DrawLine("myCanvas", color, 0 + adjust, y + adjust, x + adjust, 0 + adjust);
+        drawLine("my-canvas", color, 0 + adjust, y + adjust, x + adjust, 0 + adjust);
     }
 }
 
-function UpperRight(dimension, lines, color, offset, adjust) {
+function upperRight(dimension, lines, color, offset, adjust) {
     for (i = 0; i <= lines; i++) {
         var x = 0 + (i * offset);
-        DrawLine("myCanvas", color, x, 0 + adjust, dimension, x + adjust);
+        drawLine("my-canvas", color, x, 0 + adjust, dimension, x + adjust);
     }
 }
 
-function BottomLeft(dimension, lines, color, offset, adjust) {
+function bottomLeft(dimension, lines, color, offset, adjust) {
     for (i = 0; i <= lines; i++) {
         var x = 0 + (i * offset);
-        DrawLine("myCanvas", color, 0 + adjust, x, x + adjust, dimension);
+        drawLine("my-canvas", color, 0 + adjust, x, x + adjust, dimension);
     }
 }
 
-function BottomRight(dimension, lines, color, offset, adjust) {
+function bottomRight(dimension, lines, color, offset) {
     for (i = 0; i <= lines; i++) {
         var x = 0 + (i * offset);
         var y = lines * offset - i * offset;
-        DrawLine("myCanvas", color, x, dimension, dimension, y);
+        drawLine("my-canvas", color, x, dimension, dimension, y);
     }
 }
 
-function DrawCanvasDesign() {
-    var txtDimensionObject = document.getElementById("txtDimension");
-    var txtLinesObject = document.getElementById("txtLines");
-    var txtColorObject = document.getElementById("txtColor");
-    var radSquareObject = document.getElementById("radSquare");
+function drawDesign() {
+    var txtDimension = document.getElementById("txt-dimension");
+    var txtLines = document.getElementById("txt-lines");
+    var txtColor = document.getElementById("txt-color");
+    var optSquare = document.getElementById("opt-square");
 
-    var desiredDimension = parseInt(txtDimensionObject.value);
-    var desiredLines = parseInt(txtLinesObject.value);
-    var desiredColor = txtColorObject.value;
+    var dimension = parseInt(txtDimension.value);
+    var lines = parseInt(txtLines.value);
+    var color = txtColor.value;
 
-    var offsetLine = desiredDimension / desiredLines;
+    var offset = dimension / lines;
 
-    var canvasElement = document.getElementById("myCanvas");
-    canvasElement.width = desiredDimension;
-    canvasElement.height = desiredDimension;
+    var el = document.getElementById("my-canvas");
+    el.width = dimension;
+    el.height = dimension;
 
-    if (radSquareObject.checked == true) {
+    if (optSquare.checked == true) {
         var adjust = 0;
-        UpperLeft(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        UpperRight(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        BottomLeft(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        BottomRight(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
+        upperLeft(lines, color, offset, adjust);
+        upperRight(dimension, lines, color, offset, adjust);
+        bottomLeft(dimension, lines, color, offset, adjust);
+        bottomRight(dimension, lines, color, offset);
     } else {
-        desiredDimension = desiredDimension / 2;
-        offsetLine = offsetLine / 2;
-        var adjust = desiredDimension
-        UpperLeft(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        UpperRight(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        BottomLeft(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
-        BottomRight(desiredDimension, desiredLines, desiredColor, offsetLine, adjust);
+        dimension = dimension / 2;
+        offset = offset / 2;
+        var adjust = dimension
+        upperLeft(lines, color, offset, adjust);
+        upperRight(dimension, lines, color, offset, adjust);
+        bottomLeft(dimension, lines, color, offset, adjust);
+        bottomRight(dimension, lines, color, offset);
     }
 }
 
-function ClearCanvas() {
-    var canvasElement = document.getElementById("myCanvas");
-    var canvasContext = canvasElement.getContext("2d");
-    var w = canvasElement.width;
-    var h = canvasElement.height;
-    canvasContext.clearRect(0, 0, w, h);
+function clearCanvas() {
+    var el = document.getElementById("my-canvas");
+    var ctx = el.getContext("2d");
+    var w = el.width;
+    var h = el.height;
+    ctx.clearRect(0, 0, w, h);
 }
